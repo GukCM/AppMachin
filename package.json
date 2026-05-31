@@ -1,0 +1,67 @@
+{
+  "name": "el-machin-refaccionarias",
+  "version": "1.0.0",
+  "description": "Sistema de gestión para El Machin Refaccionarias",
+  "main": "src/main/index.js",
+  "author": "El Machin Refaccionarias",
+  "scripts": {
+    "dev": "concurrently -k \"vite --config vite.config.mjs\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron .\"",
+    "build": "cross-env CSC_IDENTITY_AUTO_DISCOVERY=false vite build --config vite.config.mjs && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder",
+    "build:dir": "cross-env CSC_IDENTITY_AUTO_DISCOVERY=false vite build --config vite.config.mjs && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --dir",
+    "build:renderer": "vite build --config vite.config.mjs",
+    "rebuild": "electron-rebuild -f -w better-sqlite3",
+    "postinstall": "electron-rebuild -f -w better-sqlite3",
+    "preview": "electron ."
+  },
+  "build": {
+    "appId": "com.elmachin.refaccionarias",
+    "productName": "El Machin Refaccionarias",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "src/main/**/*",
+      "src/preload/**/*",
+      "dist/**/*",
+      "resources/**/*",
+      "images/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icons/win/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "resources/icons/win/icon.ico",
+      "uninstallerIcon": "resources/icons/win/icon.ico",
+      "installerHeaderIcon": "resources/icons/win/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "El Machin Refaccionarias"
+    }
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.7.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^9.1.0",
+    "cross-env": "^10.1.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "electron-icon-maker": "^0.0.5",
+    "vite": "^5.4.11",
+    "wait-on": "^8.0.1"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "better-sqlite3": "^11.5.0",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "lucide-react": "^1.17.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "react-signature-canvas": "^1.1.0-alpha.2",
+    "tailwindcss": "^4.3.0"
+  }
+}

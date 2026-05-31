@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --primario:   #FFE000;   /* amarillo */
+  --primario-d: #d4b800;   /* amarillo oscuro hover */
+  --secundario: #CC0000;   /* rojo */
+  --secundario-d:#a30000;
+  --negro:   #080808;
+  --gris1:   #111111;
+  --gris2:   #1c1c1c;
+  --gris3:   #252525;
+  --gris4:   #333333;
+  --texto:   #f0f0f0;
+  --subtexto:#9ca3af;
+
+  /* aliases para no romper referencias previas */
+  --rojo:    #CC0000;
+  --amarillo:#FFE000;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--negro);
+  color: var(--texto);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gris1); }
+::-webkit-scrollbar-thumb { background: var(--primario); border-radius: 4px; }
+
+/* Input base reutilizable */
+.inp {
+  background: var(--gris1);
+  border: 1px solid var(--gris4);
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: var(--texto);
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.inp:focus { border-color: var(--primario); }
+.inp::placeholder { color: #555; }
+
+/* Botón primario */
+.btn-rojo {
+  background: var(--primario);
+  color: #000;
+  font-weight: 800;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-rojo:hover  { background: var(--primario-d); }
+.btn-rojo:active { transform: scale(0.97); }
+
+/* Botón secundario */
+.btn-gris {
+  background: var(--gris3);
+  color: var(--texto);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 0.875rem;
+  border: 1px solid var(--gris4);
+  cursor: pointer;
+  transition: background 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-gris:hover { background: var(--gris4); }
+
+/* Card */
+.card {
+  background: var(--gris2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Sección header */
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primario);
+  margin-bottom: 14px;
+}
+
+/* Tabla */
+.tabla { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.tabla thead tr { border-bottom: 1px solid var(--gris4); }
+.tabla thead th {
+  text-align: left; padding: 8px 10px;
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--subtexto);
+}
+.tabla tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+.tabla tbody tr:last-child { border: none; }
+.tabla tbody td { padding: 9px 10px; color: var(--texto); }
+.tabla .td-num { text-align: right; }
+.tabla .td-ctr { text-align: center; }
