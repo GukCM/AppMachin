@@ -36,7 +36,7 @@ export default function App() {
             borderBottom: '1px solid rgba(255,224,0,0.2)',
           }}>
             <img
-              src="/images/LogoWeb.jpeg"
+              src="./images/LogoWeb.jpeg"
               alt="El Machin"
               style={{ width:52, height:52, borderRadius:8, objectFit:'cover' }}
             />
